@@ -1,6 +1,6 @@
 <img align="right" alt="Microsoft Logo" src="https://aimeos.org/fileadmin/aimeos.org/icons/symfony.png">
 
-# Curso Symfony
+# Curso Symfony 3.2
 
 ## Enlaces Interesantes
 
