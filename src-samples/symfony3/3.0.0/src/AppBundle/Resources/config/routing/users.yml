@@ -1,0 +1,21 @@
+create_user:
+    path: /create
+    defaults: {_controller: AppBundle:User:create}
+
+update_user:
+    path: /update/{id}
+    defaults: {_controller: AppBundle:User:update}
+    #Requerimos que nos pase por URL un ID numerico
+    requirements:
+        id: \d+
+
+delete_user:
+    path: /delete/{id}
+    defaults: {_controller: AppBundle:User:delete}
+    #Requerimos que nos pase por URL un ID numerico
+    requirements:
+        id: \d+
+
+list_users:
+    path: /list
+    defaults: {_controller: AppBundle:User:list}

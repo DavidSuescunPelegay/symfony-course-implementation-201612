@@ -1,0 +1,81 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * DetalleFactura
+ *
+ * @ORM\Table(name="detalle_factura", indexes={@ORM\Index(name="fk_detalle_factura_factura1_idx", columns={"idFactura"}), @ORM\Index(name="fk_detalle_factura_producto1_idx", columns={"idProducto"})})
+ * @ORM\Entity
+ */
+class DetalleFactura
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idDetalle_factura", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $iddetalleFactura;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="concepto", type="string", length=255, nullable=false)
+     */
+    private $concepto;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="cantidad", type="integer", nullable=false)
+     */
+    private $cantidad;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="precioUnidad", type="decimal", precision=10, scale=2, nullable=false)
+     */
+    private $preciounidad;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="impuesto", type="integer", nullable=false)
+     */
+    private $impuesto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="total", type="decimal", precision=10, scale=2, nullable=false)
+     */
+    private $total;
+
+    /**
+     * @var \AppBundle\Entity\Factura
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Factura")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idFactura", referencedColumnName="idFactura")
+     * })
+     */
+    private $idfactura;
+
+    /**
+     * @var \AppBundle\Entity\Producto
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Producto")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idProducto", referencedColumnName="idProducto")
+     * })
+     */
+    private $idproducto;
+
+
+}
+

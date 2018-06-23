@@ -1,0 +1,50 @@
+app_frontend:
+    resource: "@AppBundle/Resources/config/routing/frontend.yml"
+    prefix:   /
+
+app_cliente:
+    resource: "@AppBundle/Resources/config/routing/cliente.yml"
+    prefix:   /cliente
+
+app_usuario:
+    resource: "@AppBundle/Resources/config/routing/usuario.yml"
+    prefix:   /usuario
+
+app_producto:
+    resource: "@AppBundle/Resources/config/routing/producto.yml"
+    prefix:   /producto
+
+app_categoria:
+    resource: "@AppBundle/Resources/config/routing/categoria.yml"
+    prefix:   /categoria
+
+app_factura:
+    resource: "@AppBundle/Resources/config/routing/factura.yml"
+    prefix:   /factura
+
+app_rol:
+    resource: "@AppBundle/Resources/config/routing/rol.yml"
+    prefix:   /rol
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

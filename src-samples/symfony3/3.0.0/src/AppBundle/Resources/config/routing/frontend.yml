@@ -1,0 +1,7 @@
+inicio:
+    path: /
+    defaults: {_controller: AppBundle:Frontend:index}
+
+inicio:
+    path: /
+    defaults: {_controller: AppBundle:Frontend:users}

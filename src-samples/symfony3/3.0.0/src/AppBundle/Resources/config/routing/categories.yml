@@ -1,0 +1,21 @@
+create_category:
+    path: /create
+    defaults: {_controller: AppBundle:Category:create}
+
+update_category:
+    path: /update/{id}
+    defaults: {_controller: AppBundle:Category:update}
+    #Requerimos que nos pase por URL un ID numerico
+    requirements:
+        id: \d+
+
+delete_category:
+    path: /delete/{id}
+    defaults: {_controller: AppBundle:Category:delete}
+    #Requerimos que nos pase por URL un ID numerico
+    requirements:
+        id: \d+
+
+list_category:
+    path: /list
+    defaults: {_controller: AppBundle:Category:list}

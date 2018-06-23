@@ -1,0 +1,74 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Factura
+ *
+ * @ORM\Table(name="factura", indexes={@ORM\Index(name="fk_factura_cliente1_idx", columns={"idCliente"}), @ORM\Index(name="fk_factura_usuario1_idx", columns={"idUsuario"})})
+ * @ORM\Entity
+ */
+class Factura
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idFactura", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idfactura;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechaEmision", type="datetime", nullable=false)
+     */
+    private $fechaemision;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="total", type="decimal", precision=10, scale=2, nullable=false)
+     */
+    private $total;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="abonado", type="boolean", nullable=false)
+     */
+    private $abonado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tipoPago", type="string", length=45, nullable=true)
+     */
+    private $tipopago;
+
+    /**
+     * @var \AppBundle\Entity\Cliente
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Cliente")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idCliente", referencedColumnName="idCliente")
+     * })
+     */
+    private $idcliente;
+
+    /**
+     * @var \AppBundle\Entity\Usuario
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Usuario")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idUsuario", referencedColumnName="idUsuario")
+     * })
+     */
+    private $idusuario;
+
+
+}
+

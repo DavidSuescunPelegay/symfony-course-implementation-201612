@@ -1,0 +1,33 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Rol
+ *
+ * @ORM\Table(name="rol")
+ * @ORM\Entity
+ */
+class Rol
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idRol", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idrol;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", length=45, nullable=false)
+     */
+    private $descripcion;
+
+
+}
+

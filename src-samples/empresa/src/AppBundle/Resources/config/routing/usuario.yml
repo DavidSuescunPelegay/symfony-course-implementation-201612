@@ -1,0 +1,19 @@
+listar_usuarios:
+    path: /
+    defaults: { _controller: AppBundle:Usuario:index}
+
+crear_usuario:
+    path: /crear
+    defaults: { _controller: AppBundle:Usuario:crear}
+
+eliminar_usuario:
+    path: /eliminar/{id}
+    defaults: { _controller: AppBundle:Usuario:eliminar}
+    requirements:
+                id: \d+
+
+modificar_usuario:
+    path: /modificar/{id}
+    defaults: { _controller: AppBundle:Usuario:modificar}
+    requirements:
+                id: \d+

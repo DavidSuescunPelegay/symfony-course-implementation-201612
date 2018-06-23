@@ -1,0 +1,44 @@
+security:
+   encoders:
+       AppBundle\Entity\Usuario:
+           algorithm: sha256
+           encode_as_base64: false
+           iterations: 1
+
+   providers:
+       our_db_provider:
+           entity:
+               class: AppBundle:Usuario
+               property: username
+
+   firewalls:
+       dev:
+           pattern: ^/(_(profiler|wdt)|css|images|js)/
+           security: false
+
+       main:
+           anonymous: ~
+           provider: our_db_provider
+           form_login:
+               always_use_default_target_path: true
+               default_target_path: /categoria
+               login_path: /login
+               check_path: /login_check
+
+           logout:
+               path: /logout
+               target: /login
+
+           remember_me:
+               secret:   '%secret%'
+               lifetime: 604800 # 1 week in seconds
+               path:     /
+
+   access_control:
+#        ADMINISTRADOR
+       - { path: ^/categoria/, roles: ROLE_ADMINISTRADOR }
+       - { path: ^/producto/, roles: ROLE_ADMINISTRADOR }
+
+#       NO AUTENTICADOS
+       - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+       - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }

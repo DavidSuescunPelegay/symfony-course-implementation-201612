@@ -1,0 +1,21 @@
+create_product:
+    path: /create
+    defaults: {_controller: AppBundle:Product:create}
+
+update_product:
+    path: /update/{id}
+    defaults: {_controller: AppBundle:Product:update}
+    #Requerimos que nos pase por URL un ID numerico
+    requirements:
+        id: \d+
+
+delete_product:
+    path: /delete/{id}
+    defaults: {_controller: AppBundle:Product:delete}
+    #Requerimos que nos pase por URL un ID numerico
+    requirements:
+        id: \d+
+
+list_products:
+    path: /list
+    defaults: {_controller: AppBundle:Product:list}

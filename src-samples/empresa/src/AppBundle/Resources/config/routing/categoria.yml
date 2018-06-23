@@ -1,0 +1,19 @@
+listar_categorias:
+    path: /
+    defaults: { _controller: AppBundle:Categoria:index}
+
+crear_categoria:
+    path: /crear
+    defaults: { _controller: AppBundle:Categoria:crear}
+
+eliminar_categoria:
+    path: /eliminar/{id}
+    defaults: { _controller: AppBundle:Categoria:eliminar}
+    requirements:
+                id: \d+
+
+modificar_categoria:
+    path: /modificar/{id}
+    defaults: { _controller: AppBundle:Categoria:modificar}
+    requirements:
+                id: \d+

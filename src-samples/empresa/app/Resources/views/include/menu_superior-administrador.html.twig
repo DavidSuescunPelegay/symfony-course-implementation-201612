@@ -1,0 +1,61 @@
+
+{% extends 'categoria/layout.html.twig' %}
+
+{% block body %}
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Categorias <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Clientes</a></li>
+                    <li><a href="#">Facturas</a></li>
+                    <li><a href="#">Usuarios</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="panel">
+        <header class="panel-heading">
+            <div class="panel-actions"></div>
+            <h3 class="panel-title"></h3>
+        </header>
+        <div class="panel-body">
+            <table class="table table-hover dataTable table-striped">
+                <thead>
+                <tr>
+                    <th>Ref</th>
+                    <th>Nombre</th>
+                    <th>Activo</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for categoria in categorias %}
+                    <tr>
+                        <td>{{ categoria.idCategoria }}</td>
+                        <td>{{ categoria.nombre }}</td>
+                        <td>{{ categoria.activo }}</td>
+                        <td>
+                            <a class="btn btn-success btn-xs m-r-5" style="text-decoration:none; color: #FFFFFF" href="{{ path('modificar_categoria', {'id': categoria.idCategoria}) }}">Modificar</a>
+                            <a class="btn btn-success btn-xs m-r-5" style="text-decoration:none; color: #FFFFFF" href="{{ path('eliminar_categoria', {'id': categoria.idCategoria}) }}" onclick="return confirm('¿Deseas eliminar el registro?')">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

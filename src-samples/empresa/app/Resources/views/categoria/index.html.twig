@@ -1,0 +1,38 @@
+{% extends 'categoria/layout.html.twig' %}
+
+{% block body %}
+    <div class="panel">
+        <header class="panel-heading">
+            <div class="panel-actions"></div>
+            <h3 class="panel-title"></h3>
+        </header>
+        <a class="btn btn-success btn-xs m-r-5" style="text-decoration:none; color: #FFFFFF" href="{{ path('crear_categoria') }}">Crear categoria</a>
+        <div class="panel-body">
+            <table class="table table-hover dataTable table-striped">
+                <thead>
+                <tr>
+                    <th>Ref</th>
+                    <th>Nombre</th>
+                    <th>Activo</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for categoria in categorias %}
+                    <tr>
+                        <td>{{ categoria.idCategoria }}</td>
+                        <td>{{ categoria.nombre }}</td>
+                        <td>{{ categoria.activo }}</td>
+                        <td>
+                            <a class="btn btn-success btn-xs m-r-5" style="text-decoration:none; color: #FFFFFF" href="{{ path('modificar_categoria', {'id': categoria.idCategoria}) }}">Modificar</a>
+                            <a class="btn btn-success btn-xs m-r-5" style="text-decoration:none; color: #FFFFFF" href="{{ path('eliminar_categoria', {'id': categoria.idCategoria}) }}" onclick="return confirm('¿Deseas eliminar el registro?')">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- End Panel Basic -->
+{% endblock %}
+

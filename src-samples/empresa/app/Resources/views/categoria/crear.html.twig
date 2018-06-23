@@ -1,0 +1,71 @@
+{% extends 'categoria/layout.html.twig' %}
+
+{% block body %}
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Categorias <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Clientes</a></li>
+                    <li><a href="#">Facturas</a></li>
+                    <li><a href="#">Usuarios</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+
+            <div class="panel">
+                <header class="panel-heading">
+                    <div class="panel-actions"></div>
+                    <h3 class="panel-title"></h3>
+                </header>
+                <div class="panel-body">
+
+                    <!-- Mensaje de confirmación de modificación categoria -->
+                    {% for flashMessage in app.session.flashbag.get('success') %}
+                        <div class="alert alert-info alert-dismissible" role="alert">
+                            {{ flashMessage }}</div>
+                    {% endfor %}
+                    <!-- Mensaje de confirmación de modificación categoria -->
+
+                    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            {{ form_row(form.nombre, {'attr': {'class': 'form-control','placeholder': 'Nombre'}}) }}
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-3">
+                            {{ form_widget(form.registrar, {'attr': {'class': 'btn btn-sm btn-primary m-r-5 btn-block'}}) }}
+                        </div>
+                    </div>
+                    {{ form_end(form) }}
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
